@@ -14,7 +14,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
+    
+    func requestCity(){
+        Webservice().requestGET(resource: GetProvinceResponse.resourceRequest()) { (response) in
+            switch response{
+            case .success(let result):
+                print("Sukses", result)
+            case .failure(let err):
+                print("Error", err.localizedDescription)
+            }
+        }
+    }
 }
 
